@@ -50,7 +50,8 @@ flask run --host=0.0.0.0 --port=10030
 ```
 
 6. Access without port forwarding
-   Find the IP
+
+Find the IP
 
 ```
 ip a | grep inet
