@@ -26,9 +26,7 @@ clinic_list = df["Clinic Name"].unique()
 df["Admit Source"] = df["Admit Source"].fillna("Not Identified")
 admit_list = df["Admit Source"].unique().tolist()
 
-df["Check-In Time"] = df["Check-In Time"].apply(
-    lambda x: dt.strptime(x, "%Y-%m-%d %I:%M:%S %p")
-)  
+df["Check-In Time"] = pd.to_datetime(df["Check-In Time"], format="%Y-%m-%d %I:%M:%S %p")
 
 df["Days of Wk"] = df["Check-In Hour"] = df["Check-In Time"]
 df["Days of Wk"] = df["Days of Wk"].apply(
@@ -49,8 +47,8 @@ day_list = [
     "Sunday",
 ]
 
-check_in_duration = df["Check-In Time"].describe(datetime_is_numeric=True)
-
+check_in_duration = df["Check-In Time"].astype('int64').describe()
+print(check_in_duration)
 all_departments = df["Department"].unique().tolist()
 wait_time_inputs = [
     Input((i + "_wait_time_graph"), "selectedData") for i in all_departments
@@ -709,4 +707,4 @@ def update_table(start, end, clinic, admit_type, heatmap_click, reset_click, *ar
 
 # Run the server
 if __name__ == "__main__":
-    app.run_server(debug=True)
+    app.run(debug=True, port=10030)
