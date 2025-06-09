@@ -15,40 +15,49 @@ Tasks:
    3. How to run this app and how to access it without portforwarding.
 7. Push all the changes to your own repository on Github, and provide a link to your own repo in your submission in the last.
 
-# Installation for Linux
+### Installation for Linux
 
 1. Install Python and pip
 
 ```
-   sudo apt install python3 python3-pip python3-venv -y
+sudo apt install python3 python3-pip python3-venv -y
 ```
 
 2. Check installastion was successful by checking python version
 
 ```
- python3 --version
+python3 --version
 ```
 
 3. Create and activate a virtual environment
-   ```
-   python3 -m venv venv
-   source venv/bin/activate
-   ```
-4. Install dependencies
-   ```
-   pip install .
-   ```
+
+```
+python3 -m venv venv
+source venv/bin/activate
+```
+
+4. Install dependencies for python project
+
+```
+pip install .
+```
+
 5. Run the app
-   ```
-   export FLASK_APP=app.py
-   flask run --host=0.0.0.0
-   ```
+
+```
+export FLASK_APP=main.py
+flask run --host=0.0.0.0 --port=10030
+```
+
 6. Access without port forwarding
    Find the IP
-   ```
-   ip a | grep inet
-   ```
-   Then access the app using:
-   ```
-   http://...
-   ```
+
+```
+ip a | grep inet
+```
+
+Then access the app using:
+
+```
+http://...
+```
