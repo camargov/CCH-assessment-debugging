@@ -18,33 +18,37 @@ Tasks:
 # Installation for Linux
 
 1. Install Python and pip
-   '''
+
+```
    sudo apt install python3 python3-pip python3-venv -y
-   '''
+```
+
 2. Check installastion was successful by checking python version
-   '''
-   python3 --version
-   '''
+
+```
+ python3 --version
+```
+
 3. Create and activate a virtual environment
-   '''
+   ```
    python3 -m venv venv
    source venv/bin/activate
-   '''
+   ```
 4. Install dependencies
-   '''
+   ```
    pip install .
-   '''
+   ```
 5. Run the app
-   '''
+   ```
    export FLASK_APP=app.py
    flask run --host=0.0.0.0
-   '''
+   ```
 6. Access without port forwarding
    Find the IP
-   '''
+   ```
    ip a | grep inet
-   '''
+   ```
    Then access the app using:
-   '''
+   ```
    http://...
-   '''
+   ```
